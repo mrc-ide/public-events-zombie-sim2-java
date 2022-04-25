@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ini height="700" left="20" top="20" width="1024">
+  <cities>
+    <c n="- Nowhere -" x="-90" y="-90"/>
+    <c n="Aberdeen" x="-2.11" y="57.1526"/>
+    <c n="Bath" x="-2.36" y="51.38"/>
+    <c n="Belfast" x="-5.930" y="54.597"/>
+    <c n="Birmingham" x="-1.9030" y="52.4796"/>
+    <c n="Bradford" x="-1.75206" y="53.8"/>
+    <c n="Brighton" x="-0.131312" y="50.842941"/>
+    <c n="Bristol" x="-2.59" y="51.44"/>
+    <c n="Cambridge" x="0.119" y="52.205"/>
+    <c n="Cardiff" x="-3.187" y="51.495"/>
+    <c n="Cork" x="-8.483277" y="51.903613"/>
+    <c n="Coventry" x="-1.529" y="52.409056"/>
+    <c n="Dublin" x="-6.253052" y="53.343993"/>
+    <c n="Edinburgh" x="-3.198853" y="55.955351"/>
+    <c n="Exeter" x="-3.550415" y="50.715591"/>
+    <c n="Glasgow" x="-4.25354" y="55.869147"/>
+    <c n="Gloucester" x="-2.254029" y="51.869708"/>
+    <c n="Inverness" x="-4.220581" y="57.474497"/>
+    <c n="Leeds" x="-1.550904" y="53.807139"/>
+    <c n="Leicester" x="-1.144409" y="52.643063"/>
+    <c n="Liverpool" x="-3.001099" y="53.409532"/>
+    <c n="London" x="-0.122681" y="51.501904"/>
+    <c n="Manchester" x="-2.254029" y="53.488046"/>
+    <c n="Newcastle" x="-1.616822" y="54.977614"/>
+    <c n="Norwich" x="1.283569" y="52.629729"/>
+    <c n="Nottingham" x="-1.166382" y="52.955257"/>
+    <c n="Oxford" x="-1.25885" y="51.75424"/>
+    <c n="Peterborough" x="-0.242615" y="52.573012"/>
+    <c n="Plymouth" x="-4.137268" y="50.373496"/>
+    <c n="Portsmouth" x="-1.083069" y="50.816348"/>
+    <c n="Sheffield" x="-1.473084" y="53.383328"/>
+    <c n="Southampton" x="-1.412659" y="50.909961"/>
+    <c n="Swansea" x="-3.950501" y="51.624837"/>
+  </cities>
+  <params>
+    <p n="Single" k_r0="1.8" i_rad="20" i_pc="50" h_inf="3" s_loc="0" s_rad="20" n_seeds="5" />
+  </params>
+</ini>
