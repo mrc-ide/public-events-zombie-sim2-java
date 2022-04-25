@@ -51,7 +51,7 @@ public class Z implements GApp {
   }
 
   //////////////////////////////////////////////////////////////
-  // Data undelying the incidence / accumulated cases graphs
+  // Data underlying the incidence / accumulated cases graphs
 
   ArrayList<Integer>[] new_incidence;
   ArrayList<Integer>[] accum_inf;
@@ -83,9 +83,10 @@ public class Z implements GApp {
   final byte RUN_SIM = 11;
   final byte CLEAR = 18;
   final byte DUMP_XML = 22;
-
-
-
+  
+  ////////////////////////////////////////////////////////////
+  // A way of saving the params for the different sets
+  
   @SuppressWarnings("unchecked")
   public Z() {
     ZG = new ZGui(this);
@@ -212,7 +213,7 @@ public class Z implements GApp {
     ZG.prepareToRun();
     new Thread(new RunnerThread()).start();
   }
-
+  
   public void goGoGo() {
     try {
       resetGraphs();

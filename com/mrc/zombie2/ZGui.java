@@ -31,6 +31,11 @@ public class ZGui {
   // Link to parent
 
   Z parent;
+  
+  ////////////////////////////////////
+  // Cache params for different runs
+  
+  ZParams[] ParamHolder = new ZParams[4];
 
   ///////////////////////////////////////////
   // Basic position and size of window
@@ -66,19 +71,20 @@ public class ZGui {
   // Functions to update / clear
 
   public void updateColSelect(Object comp) {
+    ParamHolder[parent.current_colour].save(this);
     gt_col0.setSelected(comp == gt_col0);
     gt_col1.setSelected(comp == gt_col1);
     gt_col2.setSelected(comp == gt_col2);
     gt_col3.setSelected(comp == gt_col3);
-    if (comp == gt_col0) parent.current_colour=0;
-    if (comp == gt_col1) parent.current_colour=1;
-    if (comp == gt_col2) parent.current_colour=2;
-    if (comp == gt_col3) parent.current_colour=3;
-    gt_col0.paintOn(gw.bi(),gw.g2d());
-    gt_col1.paintOn(gw.bi(),gw.g2d());
-    gt_col2.paintOn(gw.bi(),gw.g2d());
-    gt_col3.paintOn(gw.bi(),gw.g2d());
-    gw.requestRepaint();
+    if (comp == gt_col0) parent.current_colour = 0;
+    else if (comp == gt_col1) parent.current_colour = 1;
+    else if (comp == gt_col2) parent.current_colour = 2;
+    else if (comp == gt_col3) parent.current_colour = 3;
+    gt_col0.paintOn(gw.bi(), gw.g2d());
+    gt_col1.paintOn(gw.bi(), gw.g2d());
+    gt_col2.paintOn(gw.bi(), gw.g2d());
+    gt_col3.paintOn(gw.bi(), gw.g2d());
+    ParamHolder[parent.current_colour].retrieve(this);
   }
 
   public void clearCol(Object comp) {
@@ -209,7 +215,7 @@ public class ZGui {
   /////////////////////////////////////////
   // GO BUTTON!!
 
-  GButton b_execute;          // The "GO" button
+  GButton b_execute;
 
   public void prepareToRun() {
     gw.locked = true;
@@ -231,6 +237,9 @@ public class ZGui {
   BufferedImage go_grey_button;  // The disabled go button
 
   public ZGui(Z app) {
+    ParamHolder = new ZParams[4];
+    for (int i=0; i<4; i++) ParamHolder[i] = new ZParams();
+        
     try {
       this.parent = app;
       final String im = "images" + File.separator;
@@ -402,6 +411,7 @@ public class ZGui {
       b_xml = (GButton) p_main.addChild(new GButton(wid-613,650,36,24,p_main,gw, parent.DUMP_XML,"XML"));
 
     setMovieImage(null);
+    for (int i=0; i<4; i++) ParamHolder[i].save(this);
 
     gw.setMaster(p_main);
     gw.update();
