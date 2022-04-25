@@ -36,6 +36,6 @@
     <c n="Swansea" x="-3.950501" y="51.624837"/>
   </cities>
   <params>
-    <p n="Single" k_r0="1.8" i_rad="20" i_pc="50" h_inf="3" s_loc="0" s_rad="20" n_seeds="5" />
+    <p n="Single" k_r0="1.8" i_rad="20" i_pc="50" v_city="0" h_inf="3" s_loc="0" s_rad="20" n_seeds="5" />
   </params>
 </ini>

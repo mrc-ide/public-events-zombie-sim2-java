@@ -1,6 +1,8 @@
 *.class
-job\*.txt
-job\*.txt2
-job\*.png
+job/*.txt
+job/*.txt2
+job/*.png
+job/end.zom
+job/*.ini
 .settings
 *.bak
