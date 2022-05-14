@@ -1,2 +1,2 @@
 @echo off
-java com.mrc.zombie2.Z
+java com.mrc.zombie2.Z /port:8080

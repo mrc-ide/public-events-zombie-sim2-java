@@ -84,7 +84,14 @@ public class ZGui {
     gt_col1.paintOn(gw.bi(), gw.g2d());
     gt_col2.paintOn(gw.bi(), gw.g2d());
     gt_col3.paintOn(gw.bi(), gw.g2d());
-    ParamHolder[parent.current_colour].retrieve(this);
+
+    // Rolling back this change, as in practise,
+    // it doesn't work to have the params updating
+    // when you change colour. A better solution
+    // would be a more explicit copy/reload method,
+    // but without making the interface horrible.
+
+    // ParamHolder[parent.current_colour].retrieve(this);
   }
 
   public void clearCol(Object comp) {
