@@ -97,9 +97,9 @@ public class ZGui {
   public void clearCol(Object comp) {
     int i=0;
     if (comp == gb_ecol0) i=0;
-    if (comp == gb_ecol1) i=1;
-    if (comp == gb_ecol2) i=2;
-    if (comp == gb_ecol3) i=3;
+    else if (comp == gb_ecol1) i=1;
+    else if (comp == gb_ecol2) i=2;
+    else if (comp == gb_ecol3) i=3;
     parent.accum_inf[i].clear();
     parent.new_incidence[i].clear();
     gp_acc.updateAllGraphs();
@@ -107,6 +107,7 @@ public class ZGui {
     gp_inc.paintOn(gw.bi(), gw.g2d());
     gp_acc.paintOn(gw.bi(), gw.g2d());
     gw.requestRepaint();
+    gw.checkRepaint();
   }
 
   ///////////////////////////////////////////////////////
