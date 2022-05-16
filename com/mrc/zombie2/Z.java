@@ -314,7 +314,7 @@ public class Z implements GApp {
 
             // Run web-server on this port, to have our zombie minds controlled by an overlord/android.
 
-            else if (_args[i].startsWith("/PORT:")) zom.LISTEN_PORT = Integer.parseInt(_args[i].substring(6));
+            else if (_args[i].toUpperCase().startsWith("/PORT:")) zom.LISTEN_PORT = Integer.parseInt(_args[i].substring(6));
           }
         }
         zom.initNetwork();
