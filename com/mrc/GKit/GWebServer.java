@@ -23,6 +23,7 @@ public class GWebServer {
       server = HttpServer.create(new InetSocketAddress(port), 0);
       server.createContext("/", new WebHandler());
       server.start();
+      System.out.println("Server up");
     } catch (Exception e) {
       if (e instanceof java.net.BindException) {
         System.out.println("The network port "+port+" is already in use. Web Server disabled");
@@ -89,13 +90,15 @@ public class GWebServer {
       }
 
       String response = "OK";
+      if (listener != null) {
+        response = listener.receiveMessage(key_values);
+      }
+
       t.sendResponseHeaders(200, response.length());
       OutputStream os = t.getResponseBody();
       os.write(response.getBytes());
       os.close();
-      if (listener != null) {
-        listener.receiveMessage(key_values);
-      }
+
     }
   }
 }
