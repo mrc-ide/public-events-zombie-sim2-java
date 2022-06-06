@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <ini height="700" left="20" top="20" width="1024">
   <cities>
-    <c n="- Nowhere -" x="-90" y="-90"/>
+    <c n="- Random -" x="-90" y="-90"/>
     <c n="Aberdeen" x="-2.11" y="57.1526"/>
     <c n="Bath" x="-2.36" y="51.38"/>
     <c n="Belfast" x="-5.930" y="54.597"/>
