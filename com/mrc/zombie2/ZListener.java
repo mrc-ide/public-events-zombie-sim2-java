@@ -30,15 +30,14 @@ public class ZListener implements GWebListener {
 
   @Override
   public String receiveMessage(HashMap<String, String> args) {
-    
     String cmd = args.get("cmd");
     if (cmd.equals("BUSY")) return String.valueOf(parent.ZG.gw.locked ? "WAIT" : "STOP_WAITING");
-    
+
     if (cmd.equals("set")) {
-      
+
       String[] params = args.get("param").split(";");
       String[] values = args.get("value").split(";");
-      
+
       for (int i = 0; i < params.length; i++) {
         if (params[i].equals("R0")) updateText(parent.ZG.k_r0, values[i]);
         else if (params[i].equals("Tinf")) updateText(parent.ZG.h_inf, values[i]);
@@ -49,32 +48,34 @@ public class ZListener implements GWebListener {
         else if (params[i].equals("seedrad")) updateText(parent.ZG.n_seedradius, values[i]);
         else if (params[i].equals("seedcity")) updateSelector(parent.ZG.l_pcities, parent.ZG.lh_pcities, Integer.parseInt(values[i]));
         else if (params[i].equals("mobility")) {
+
           int val = Integer.parseInt(values[i]);
           if (val == 1) {
-            parent.k_cut = 120;
-            parent.k_a = 7;
+            parent.k_cut = 180;
+            parent.k_a = 4;
             parent.k_b = 6;
-            
+
           } else if (val == 2) {
-            parent.k_cut = 150;
-            parent.k_a = 5;
+            parent.k_cut = 180;
+            parent.k_a = 4;
             parent.k_b = 4;
-            
+
           } else if (val == 3) {
             parent.k_cut = 180;
-            parent.k_a = 3;
-            parent.k_b = 2;
-            
+            parent.k_a = 4;
+            parent.k_b = 3;
+
           } else if (val == 4) {
             parent.k_cut = 3000;
-            parent.k_a = 1;
-            parent.k_b = 1;
+            parent.k_a = 4;
+            parent.k_b = 0.5;
           }
         }
+
         else if (params[i].equals("net_msg")) { /* Ignore, but recognise */ }
         else System.out.println("Error - param "+params[i]+" not known in SET");
       }
-      
+
       for (int i = 0; i < params.length; i++) {
         if (params[i].equals("net_msg")) { 
           if (values[i].equals("R0")) { parent.ZG.updateColSelect(parent.ZG.gt_col0); parent.runSim(); return "WAIT"; }
