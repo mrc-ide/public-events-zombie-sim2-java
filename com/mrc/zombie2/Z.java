@@ -84,6 +84,16 @@ public class Z implements GApp {
   final byte CLEAR = 18;
   final byte DUMP_XML = 22;
   
+
+  /////////////////////////////////////////////////////////////
+  // Spatial kernel - not visible in this version, but
+  // Android can set it to a few presets.
+  
+  double k_cut = 180;
+  double k_a = 4;
+  double k_b = 3;
+
+  
   ////////////////////////////////////////////////////////////
   // A way of saving the params for the different sets
   
@@ -220,9 +230,9 @@ public class Z implements GApp {
       ZG.gp_acc.setLineVisible(current_colour, true);
       ZG.gp_inc.setLineVisible(current_colour, true);
       PrintWriter iniFile = new PrintWriter(new File("job"+File.separator+"zom.ini"));
-      iniFile.println("180");  // k_cut
-      iniFile.println("4.0");  // k_a
-      iniFile.println("3.0");  // k_b
+      iniFile.println(k_cut);  // k_cut
+      iniFile.println(k_a);  // k_a
+      iniFile.println(k_b);  // k_b
       iniFile.println(ZG.k_r0.to_double_string());
       iniFile.println("0");    // s_amp
       iniFile.println("40.0"); // s_per

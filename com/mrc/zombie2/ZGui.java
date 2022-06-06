@@ -398,8 +398,6 @@ public class ZGui {
     p_seed.addChild(new GLabel(68,74,"km from",GLabel.LEFT_ALIGN,0,p_seed,gw));
     l_pcities = (GList) p_seed.addHiddenChild(new GList(15,-100,120,320,p_seed,parent.cities,gw,GList.SINGLE_SELECTION,0));
     lh_pcities = (GListHeader) p_seed.addChild(new GListHeader(20,100,130,p_seed,gw,l_pcities,GList.SINGLE_SELECTION));
-    l_pcities.removeEntry(0);
-    l_pcities.addEntry(0,"- Random -");
 
     /////////////////////////////////////////////////////////
     // The GO Button!!
