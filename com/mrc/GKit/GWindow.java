@@ -52,7 +52,7 @@ public class GWindow extends JFrame {
   public static Font TITLE_FONT = new Font("Trebuchet MS",Font.PLAIN,16);
   public static Font TFIELD_FONT = new Font("Tahoma",Font.PLAIN,15);
   public static Font TSUB_FONT = new Font("Tahoma",Font.PLAIN,12);
-  public static Font TGRAPH_FONT = new Font("Tahoma",Font.PLAIN,10);
+  public static Font TGRAPH_FONT = new Font("Tahoma",Font.PLAIN,13);
   
   private Timer timer;
   private float fade=0;

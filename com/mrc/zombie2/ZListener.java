@@ -48,28 +48,12 @@ public class ZListener implements GWebListener {
         else if (params[i].equals("seedrad")) updateText(parent.ZG.n_seedradius, values[i]);
         else if (params[i].equals("seedcity")) updateSelector(parent.ZG.l_pcities, parent.ZG.lh_pcities, Integer.parseInt(values[i]));
         else if (params[i].equals("mobility")) {
-
           int val = Integer.parseInt(values[i]);
-          if (val == 1) {
-            parent.k_cut = 180;
-            parent.k_a = 4;
-            parent.k_b = 6;
+          if (val == 1) parent.ZG.updateMobility(parent.ZG.tb_mobility1);
+          else if (val == 2) parent.ZG.updateMobility(parent.ZG.tb_mobility2);
+          else if (val == 3) parent.ZG.updateMobility(parent.ZG.tb_mobility3);
+          else if (val == 4) parent.ZG.updateMobility(parent.ZG.tb_mobility4);
 
-          } else if (val == 2) {
-            parent.k_cut = 180;
-            parent.k_a = 4;
-            parent.k_b = 4;
-
-          } else if (val == 3) {
-            parent.k_cut = 180;
-            parent.k_a = 4;
-            parent.k_b = 3;
-
-          } else if (val == 4) {
-            parent.k_cut = 3000;
-            parent.k_a = 4;
-            parent.k_b = 0.5;
-          }
         }
 
         else if (params[i].equals("net_msg")) { /* Ignore, but recognise */ }
@@ -77,7 +61,7 @@ public class ZListener implements GWebListener {
       }
 
       for (int i = 0; i < params.length; i++) {
-        if (params[i].equals("net_msg")) { 
+        if (params[i].equals("net_msg")) {
           if (values[i].equals("R0")) { parent.ZG.updateColSelect(parent.ZG.gt_col0); parent.runSim(); return "WAIT"; }
           else if (values[i].equals("R1")) { parent.ZG.updateColSelect(parent.ZG.gt_col1);  parent.runSim(); return "WAIT"; }
           else if (values[i].equals("R2")) { parent.ZG.updateColSelect(parent.ZG.gt_col2);  parent.runSim(); return "WAIT"; }

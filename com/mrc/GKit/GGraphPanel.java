@@ -147,7 +147,7 @@ public class GGraphPanel extends GPanel {
     int y_top = 5;
     int x_border = 40;
     int x_width = gImage.getWidth()-x_border;
-    int no_x_axis_points = x_width/28;
+    int no_x_axis_points = x_width/40;
     pg.setColor(backColour);
     pg.fillRect(2,2,x_border-6,y_height+6);
     pg.fillRect(2,y_height+10,x_width+(x_border-2),y_border+10);
@@ -163,10 +163,12 @@ public class GGraphPanel extends GPanel {
     }
     
     
-    int no_y_axis_points = y_height/16;
+    int no_y_axis_points = y_height/32;
     for (int j=0; j<=no_y_axis_points; j++) {
       int y_mid = y_height - (int) ((double)j*(y_height/no_y_axis_points));
       String y_val = String.valueOf((Math.round(100.0*(min_y+  ((max_y-min_y)*((double)j/(double)no_y_axis_points)))))/100.0);
+      if (y_val.indexOf(".") < 0) y_val += ".00";
+      else if (y_val.charAt(y_val.length()-2) == '.') y_val += "0";
       pg.drawString(y_val,(x_border-6)-(fm.stringWidth(y_val)),y_mid+y_top+3);
       pg.drawLine(x_border,y_top+y_mid,x_border-2,y_top+y_mid);
     }

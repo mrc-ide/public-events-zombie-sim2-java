@@ -15,12 +15,13 @@ import org.w3c.dom.Node;
 
 import com.mrc.GKit.GApp;
 import com.mrc.GKit.GItem;
+import com.mrc.GKit.GTickBox;
 import com.mrc.GKit.GWebServer;
 import com.mrc.GKit.GXMLHelper;
 
 public class Z implements GApp {
 
-  static final String Z_ver = "2.2";
+  static final String Z_ver = "2.3";
   ///////////////////////////////////////////////
   // Overrides for GApp
 
@@ -81,26 +82,25 @@ public class Z implements GApp {
   final byte SET_FRAME = 9;
   final byte SEL_COL = 10;
   final byte RUN_SIM = 11;
+  final byte MOB_TICK = 12;
   final byte CLEAR = 18;
   final byte DUMP_XML = 22;
-  
+
 
   /////////////////////////////////////////////////////////////
   // Spatial kernel - not visible in this version, but
   // Android can set it to a few presets.
-  
+
   double k_cut = 180;
   double k_a = 4;
   double k_b = 3;
 
-  
+
   ////////////////////////////////////////////////////////////
   // A way of saving the params for the different sets
-  
+
   @SuppressWarnings("unchecked")
   public Z() {
-    ZG = new ZGui(this);
-
     new_incidence = new ArrayList[4];
     accum_inf = new ArrayList[4];
     for (int i = 0; i<4; i++) {
@@ -116,6 +116,7 @@ public class Z implements GApp {
       else if (func == RUN_SIM) runSim();
       else if (func == CLEAR) ZG.clearCol(component);
       else if (func == DUMP_XML) dumpXML();
+      else if (func == MOB_TICK) ZG.updateMobility((GTickBox) component);
     }
   }
 
@@ -176,8 +177,11 @@ public class Z implements GApp {
   public void loadINIFile() {
     try {
       root = GXMLHelper.loadDocument("z_conf.xml");
+      String size = GXMLHelper.getAttribute(root,  "size");
 
-      // Load the position/size of the window
+      if (size.equals("SD")) {
+        ZG = new ZGui_SD(this);
+      } else ZG = new ZGui_HD(this);
 
       ZG.loadINI(root);
 
@@ -223,7 +227,7 @@ public class Z implements GApp {
     ZG.prepareToRun();
     new Thread(new RunnerThread()).start();
   }
-  
+
   public void goGoGo() {
     try {
       resetGraphs();

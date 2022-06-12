@@ -9,7 +9,7 @@ public class ZParams {
   String n_seeds;
   String n_seedradius;
   int seed_city;
-  
+
   void save(ZGui ZG) {
     r0 = ZG.k_r0.getText();
     t_inf = ZG.h_inf.getText();
@@ -20,7 +20,7 @@ public class ZParams {
     n_seedradius = ZG.n_seedradius.getText();
     seed_city = ZG.l_pcities.getSelected();
   }
-  
+
   void retrieve(ZGui ZG) {
     ZG.k_r0.setText(r0);
     ZG.h_inf.setText(t_inf);

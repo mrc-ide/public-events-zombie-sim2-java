@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ini height="700" left="20" top="20" width="1024">
+<ini size="HD" top="20" left="20">
   <cities>
     <c n="- Random -" x="-90" y="-90"/>
     <c n="Aberdeen" x="-2.11" y="57.1526"/>
