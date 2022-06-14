@@ -177,7 +177,7 @@ public class ZGui_HD extends ZGui {
     p_intv.addChild(new GLabel(88,44,"% of people",GLabel.LEFT_ALIGN,0,p_intv,gw));
     i_rad=(GTextEntry) p_intv.addChild(new GTextEntry(left_col,75,40,p_intv,gw,"20",0));
     p_intv.addChild(new GLabel(88,79,"km from",GLabel.LEFT_ALIGN,0,p_intv,gw));
-
+    parent.cities[0] = "- No Vacc -";
     l_cities = (GList) p_intv.addHiddenChild(new GList(left_col - 5,-130,120,320,p_intv,parent.cities,gw,GList.SINGLE_SELECTION,0));
     lh_cities = (GListHeader) p_intv.addChild(new GListHeader(left_col,110,120,p_intv,gw,l_cities,GList.SINGLE_SELECTION));
 
@@ -200,7 +200,7 @@ public class ZGui_HD extends ZGui {
 
     //////////////////////////////////////////////////////////////////////////
     // The seeding panel
-
+    parent.cities[0] = "- Random -";
     p_seed.addChild(new GLabel(88,44,"seeds",GLabel.LEFT_ALIGN,0,p_seed,gw));
     n_seeds = (GTextEntry) p_seed.addChild(new GTextEntry(left_col,40,40,p_seed,gw,"5",0));
     n_seedradius = (GTextEntry) p_seed.addChild(new GTextEntry(left_col,75,40,p_seed,gw,"10",0));
