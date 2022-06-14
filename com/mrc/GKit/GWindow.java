@@ -96,7 +96,7 @@ public class GWindow extends JFrame {
     if (repaint_requested) {
       if (g2d!=null) {
         g2d.drawImage(ga.isUnSaved()?(save_over?save_lit:save_dim):save_na,width-65,5,null);
-        repaint();
+        this.paint(this.getGraphics());
         repaint_requested=false;
       }
     }
