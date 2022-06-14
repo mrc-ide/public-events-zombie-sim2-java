@@ -53,6 +53,8 @@ public class ZListener implements GWebListener {
           else if (val == 2) parent.ZG.updateMobility(parent.ZG.tb_mobility2);
           else if (val == 3) parent.ZG.updateMobility(parent.ZG.tb_mobility3);
           else if (val == 4) parent.ZG.updateMobility(parent.ZG.tb_mobility4);
+          parent.ZG.gw.requestRepaint();
+          parent.ZG.gw.checkRepaint();
 
         }
 
