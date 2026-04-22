@@ -11,6 +11,39 @@ run the code. My favourite is
 which is a free open-source build of OpenJDK - which
 happens to include JavaFX too, although we don't need it here.
 
+
+## On Mac OS
+
+### Install OpenJDK
+
+In a terminal, see if `java --version` and `javac --version` do anything. If they don't, then we
+need to install OpenJDK. I use Homebrew - if `brew` in the terminal doesn't do anything useful,
+then use the next section to install `brew` - and then:-
+
+```
+brew install openjdk
+sudo ln -sfn /usr/local/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+echo 'export JAVA_HOME="/usr/local/opt/openjdk"' >> ~/.zshrc
+```
+
+And after this, hopefully the `java` and `javac` commands work.
+
+### Install Homebrew
+
+In a terminal, see if `brew` does anything. If it doesn't, then:-
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+It will ask for your root password, and then for me it took about 20 minutes to install
+Homebrew, and the Xcode command-line tools.
+
+### Check for gcc
+
+Hopefully by now, `gcc --version` in the terminal will report something - if it doesn't, I
+think installing homebrew above is enough to make it work.
+
+
 # Compiling
 
 See the `compile.sh` or `compile.bat` file for a one-liner to compile
