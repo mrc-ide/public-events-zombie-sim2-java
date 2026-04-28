@@ -35,6 +35,7 @@ public class Z implements GApp {
   boolean GUI_PNG = false;
   int LISTEN_PORT = -1;
   boolean admin = false;
+  boolean DETERMINSTIC = false;
   ZGui ZG;
 
   ///////////////////////////////////////
@@ -252,8 +253,15 @@ public class Z implements GApp {
       iniFile.println(ZG.h_inf.to_double_string());
       iniFile.println("0.9"); // h_sympt
       iniFile.println(ZG.n_seeds.to_double_string());
-      iniFile.println("12345"); // n_seed1
-      iniFile.println("67890"); // n_seed2
+      if (DETERMINSTIC) {
+        iniFile.println("12345"); // n_seed1
+        iniFile.println("67890"); // n_seed2
+      } else {
+        int s1 = (int) (Math.random() * 99999);
+        int s2 = (int) (Math.random() * 99999);      
+        iniFile.println(s1); // n_seed1
+        iniFile.println(s2); // n_seed2
+      }
       iniFile.println(ZG.n_seedradius.to_double_string());
       iniFile.println(String.valueOf(city_lon[ZG.l_pcities.getSelected()]));
       iniFile.println(String.valueOf(city_lat[ZG.l_pcities.getSelected()]));
@@ -329,6 +337,11 @@ public class Z implements GApp {
             // Run web-server on this port, to have our zombie minds controlled by an overlord/android.
 
             else if (_args[i].toUpperCase().startsWith("/PORT:")) zom.LISTEN_PORT = Integer.parseInt(_args[i].substring(6));
+            
+            // Allow for deterministic running
+            
+            else if (_args[i].toUpperCase().startsWith("/DETERMINISTIC")) zom.DETERMINSTIC = true;
+            
           }
         }
         zom.initNetwork();
